@@ -1,6 +1,6 @@
 package com.foo
 
-class Utilities implements Serializable {
+class hello implements Serializable {
     def title
 
     Utilities(title) {
