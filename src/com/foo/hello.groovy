@@ -7,7 +7,7 @@ class hello implements Serializable {
         this.title = title
     }
 
-    def void dis() {
+    void dis() {
         System.out.println(title)
         println "Hello World"
     }
