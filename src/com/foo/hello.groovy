@@ -8,7 +8,7 @@ class hello implements Serializable {
     //}
 
     void dis() {
-        System.out.println(title)
+      //  System.out.println(title)
         println "Hello World"
     }
 }
