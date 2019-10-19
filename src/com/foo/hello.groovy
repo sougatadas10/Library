@@ -3,7 +3,7 @@ package com.foo
 class hello implements Serializable {
     def title
 
-    Utilities(title) {
+    hello(title) {
         this.title = title
     }
 
