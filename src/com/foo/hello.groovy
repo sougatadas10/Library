@@ -8,6 +8,7 @@ class hello implements Serializable {
     }
 
     def dis() {
-        println (title)
+        println title
+        println "Hello World"
     }
 }
