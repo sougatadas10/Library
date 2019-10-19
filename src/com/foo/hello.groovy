@@ -3,9 +3,9 @@ package com.foo
 class hello implements Serializable {
     def title
 
-    hello(title) {
-        this.title = title
-    }
+   // hello(title) {
+    //    this.title = title
+    //}
 
     void dis() {
         System.out.println(title)
