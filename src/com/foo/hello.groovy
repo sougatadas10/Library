@@ -7,8 +7,8 @@ class hello {
     //    this.title = title
     //}
 
-    void dis() {
+    String dis() {
       //  System.out.println(title)
-        println "Hello World"
+        return "Hello"
     }
 }
