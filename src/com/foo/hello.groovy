@@ -8,7 +8,7 @@ class hello {
     }
 
     String dis() {
-        echo $title
+        echo ${title}
         return ("Hello, " + title)
     }
 }
