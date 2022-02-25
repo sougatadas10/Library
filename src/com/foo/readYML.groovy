@@ -1,7 +1,7 @@
 package com.foo
 
 class readYML {
-        void readYMLFile(String filePath) {
+        void parse(String filePath) {
             def envConfig = readYaml file: filePath
 
             //envConfig.each {
