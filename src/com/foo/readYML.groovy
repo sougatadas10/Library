@@ -5,7 +5,10 @@ class readYML {
             //def envConfig = readYaml file: filePath
 
             envConfig.each {
-                key,value -> context.println("Key: "+key+"Value: "+value)
+                key,value -> 
+                    if (key == "mysql") {
+                            context.println(value["deploy"])
+                    }    
             }
             
         }
