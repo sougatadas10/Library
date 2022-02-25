@@ -1,7 +1,7 @@
 package com.foo
 
 class readyml {
-        void readYMLFile(String filePath="./envState.yml") {
+        void readYMLFile() {
             //def envConfig = readYaml file: filePath
 
             //envConfig.each {
