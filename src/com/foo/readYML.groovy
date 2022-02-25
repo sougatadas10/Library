@@ -1,13 +1,13 @@
 package com.foo
 
 class readYML {
-        String parse(String filePath) {
+        void parse(String filePath) {
             //def envConfig = readYaml file: filePath
 
             //envConfig.each {
             //    key,value -> println("Key: "+key+"Value: "+value)
             //}
-             println ("hello")   
+             out.println ("hello")   
         }
 
 }
