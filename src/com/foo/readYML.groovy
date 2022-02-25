@@ -1,7 +1,7 @@
 package com.foo
 
 class readYML {
-        String parse(String context,LinkedHashMap envConfig) {
+        void parse(String context,LinkedHashMap envConfig) {
             //def envConfig = readYaml file: filePath
 
             envConfig.each {
