@@ -7,7 +7,7 @@ class readYML {
             envConfig.each {
                 key,value -> 
                     if (key == "mysql") {
-                            context.println(value["deploy"])
+                            context.println(value.deploy)
                     }    
             }
             
