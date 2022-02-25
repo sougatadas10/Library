@@ -1,6 +1,6 @@
 package com.foo
 
-class parseYML {
+class readyml {
         void readYMLFile(String filePath="./envState.yml") {
             //def envConfig = readYaml file: filePath
 
