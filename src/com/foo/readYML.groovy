@@ -1,6 +1,6 @@
 package com.foo
 
-class readyml {
+class readYML {
         void readYMLFile() {
             //def envConfig = readYaml file: filePath
 
