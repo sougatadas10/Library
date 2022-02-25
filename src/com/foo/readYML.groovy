@@ -7,7 +7,7 @@ class readYML {
             //envConfig.each {
             //    key,value -> println("Key: "+key+"Value: "+value)
             //}
-             out.println ("hello")   
+             println ("hello")   
         }
 
 }
