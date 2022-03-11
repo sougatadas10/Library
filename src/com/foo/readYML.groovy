@@ -23,13 +23,13 @@ class readYML {
             context.println ("key: " + key+ " value: " + value)
             if (key != "extra_vars")
                 params= "[\$class: \'StringParameterValue\',"+ "name: "+key+","+"value: "+value+"]"
-            else {
+            /**else {
                 key.extra_vars.each {
                     k,v -> extraVars+k+": "+v
                 }
                 extraVars=extraVars+"}"
                 params= "[\$class: \'StringParameterValue\',"+ "name: extra_vars,"+"value: "+extraVars+"]"
-            }
+            }**/
         }
         return params
     }
