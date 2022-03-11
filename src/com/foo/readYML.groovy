@@ -1,14 +1,17 @@
 package com.foo
 
 class readYML {
-    void parse(def context,LinkedHashMap envConfig) {
+    Map parse(def context,LinkedHashMap envConfig) {
+        def jobsMap = [:]
         envConfig.each {
             key,value -> 
             if (value.deploy) {
-                context.println(setParams(value))
+                //context.println(setParams(value))
+                jobsMap.add(setParams(value))
             }
             else {
                 context.println ("Deployment not selected")
+                jobsMap.add(null)
             }
         }
 
