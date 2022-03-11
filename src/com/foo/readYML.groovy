@@ -4,7 +4,7 @@ class readYML {
     void parse(def context,LinkedHashMap envConfig) {
         envConfig.each {
             key,value -> 
-            if (value.deploy == "true") {
+            if (value.deploy) {
                 context.println(setParams(value))
             }
             else {
