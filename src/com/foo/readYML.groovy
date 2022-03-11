@@ -4,19 +4,17 @@ class readYML {
     void parse(def context,LinkedHashMap envConfig) {
         envConfig.each {
             key,value -> 
-            if (key == "mysql") {
-                context.println(setParams(context,value))
-                //context.println(value.deploy)
-                //value.extra_vars.each {
-                //    k,v -> context.println ("k:" +k+" "+ "v:" +v)
-
-                //}
-            }    
+            if (value.deploy == "true") {
+                context.println(setParams(value))
+            }
+            else {
+                context.println ("Deployment not selected")
+            }
         }
 
     }
 
-    String setParams(def context,LinkedHashMap config) {
+    String setParams(LinkedHashMap config) {
         String params="[",extraVars="{"
         config.each {
             key,value ->
