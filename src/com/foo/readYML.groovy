@@ -28,7 +28,7 @@ class readYML {
                 value.each {
                     k,v -> extraVars=extraVars+k+": "+v+","
                 }
-                extraVars=extraVars+"}"
+                extraVars=extraVars.substring(0, extraVars.length()-1) +"}"
                 params= params+"[\$class: \'StringParameterValue\',"+ "name: extra_vars,"+"value: "+extraVars+"]"
             }
         }
