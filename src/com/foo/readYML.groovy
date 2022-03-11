@@ -18,18 +18,25 @@ class readYML {
 
     }
 
-    String setParams(LinkedHashMap config) {
-        String params="[",extraVars="{"
+//    Map setParams(LinkedHashMap config) {
+    ArrayList setParams(LinkedHashMap config) {    
+        //String params="[",extraVars="{"
+        def params=[]
+        String extraVars="{"
+        
         config.each {
             key,value ->
             if (key != "extra_vars")
-                params= params+"[\$class: \'StringParameterValue\',"+ "name: "+key+","+"value: "+value+"],"
+                //params= params+"[\$class: \'StringParameterValue\',"+ "name: "+key+","+"value: "+value+"],"
+                params.add([$class:'StringParameterValue',name:key,value: value])
             else {
                 value.each {
                     k,v -> extraVars=extraVars+k+": "+v+","
                 }
                 extraVars=extraVars.substring(0, extraVars.length()-1) +"}"
-                params= params+"[\$class: \'StringParameterValue\',"+ "name: extra_vars,"+"value: "+extraVars+"]"
+                //params= params+"[\$class: \'StringParameterValue\',"+ "name: extra_vars,"+"value: "+extraVars+"]"
+                params= params.add([$class:'StringParameterValue',name: "extra_vars",value: extraVars])
+                
             }
         }
         return params
