@@ -2,25 +2,28 @@ package com.foo
 import groovy.json.JsonSlurper
 
 class readYML {
-    Map parse(def context,LinkedHashMap envConfig) {
-        def jobsMap = [:]
+    ArrayList parse(def context,LinkedHashMap envConfig) {
+        def jobsMap = []
+        def keysMap = []
         envConfig.each {
             key,value -> 
             if (value.deploy) {
                 //context.println(setParams(value))
                 //context.println("key:"+key+" value: "+ value)
-                jobsMap.put(key,setParams(value))
+                jobsMap.add(setParams(value))
+                keysMap.add(key)
             }
             else {
                 context.println ("Deployment not selected")
-                jobsMap.put(key,"false")
+                jobsMap.add("false")
             }
         }
+        jobsMap.add(keysMap)
         return jobsMap
 
     }
 
-        ArrayList setParams(LinkedHashMap config) {
+     ArrayList setParams(LinkedHashMap config) {
     //  String setParams(LinkedHashMap config) {    
         //String params="[",extraVars="{"
         def params=[]
