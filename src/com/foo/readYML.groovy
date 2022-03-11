@@ -21,7 +21,7 @@ class readYML {
         config.each {
             key,value ->
             if (key != "extra_vars")
-                params= "[$class: 'StringParameterValue',"+ "name: "+key+","+"value: "+value+"]"
+                params= "[\$class: \'StringParameterValue\',"+ "name: "+key+","+"value: "+value+"]"
             else {
                 key.extra_vars.each {
                     k,v -> extraVars+k+": "+v
