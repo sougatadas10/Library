@@ -20,14 +20,13 @@ class readYML {
         String params="[",extraVars="{"
         config.each {
             key,value ->
-            //context.println ("key: " + key+ " value: " + value)
             if (key != "extra_vars")
-                params= params+"[\$class: \'StringParameterValue\',"+ "name: "+key+","+"value: "+value+"]"
+                params= params+"[\$class: \'StringParameterValue\',"+ "name: "+key+","+"value: "+value+"],"
             else {
                 context.println ("key: "+key)
                 context.println ("value: "+value)
                 value.each {
-                    k,v -> extraVars=extraVars+k+": "+v
+                    k,v -> extraVars=extraVars+k+": "+v+","
                 }
                 extraVars=extraVars+"}"
                 params= params+"[\$class: \'StringParameterValue\',"+ "name: extra_vars,"+"value: "+extraVars+"]"
