@@ -6,7 +6,7 @@ class readYML {
         envConfig.each {
             key,value -> 
             if (value.deploy) {
-                //context.println(setParams(value))
+                context.println(setParams(value))
                 jobsMap.put(key,setParams(value))
             }
             else {
