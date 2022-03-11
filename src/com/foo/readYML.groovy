@@ -26,7 +26,7 @@ class readYML {
             else {
                 context.println ("key: "+key)
                 context.println ("value: "+value)
-                value.extra_vars.each {
+                value.each {
                     k,v -> extraVars=extraVars+k+": "+v
                 }
                 extraVars=extraVars+"}"
