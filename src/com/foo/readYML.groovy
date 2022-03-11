@@ -5,7 +5,7 @@ class readYML {
         envConfig.each {
             key,value -> 
             if (key == "mysql") {
-                context.println(setParams(value))
+                context.println(setParams(context,value))
                 //context.println(value.deploy)
                 //value.extra_vars.each {
                 //    k,v -> context.println ("k:" +k+" "+ "v:" +v)
@@ -16,10 +16,11 @@ class readYML {
 
     }
 
-    String setParams(LinkedHashMap config) {
+    String setParams(def context,LinkedHashMap config) {
         String params="[",extraVars="{"
         config.each {
             key,value ->
+            context.println ("key: " + key+ " value: " + value)
             if (key != "extra_vars")
                 params= "[\$class: \'StringParameterValue\',"+ "name: "+key+","+"value: "+value+"]"
             else {
