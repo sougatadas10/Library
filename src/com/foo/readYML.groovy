@@ -7,11 +7,11 @@ class readYML {
             key,value -> 
             if (value.deploy) {
                 //context.println(setParams(value))
-                jobsMap.add(setParams(value))
+                jobsMap.put(setParams(value))
             }
             else {
                 context.println ("Deployment not selected")
-                jobsMap.add(null)
+                jobsMap.put(null)
             }
         }
 
