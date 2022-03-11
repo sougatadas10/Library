@@ -27,7 +27,7 @@ class readYML {
                     k,v -> extraVars+k+": "+v
                 }
                 extraVars=extraVars+"}"
-                params= "[$class: 'StringParameterValue',"+ "name: extra_vars,"+"value: "+extraVars+"]"
+                params= "[\$class: \'StringParameterValue\',"+ "name: extra_vars,"+"value: "+extraVars+"]"
             }
         }
         return params
