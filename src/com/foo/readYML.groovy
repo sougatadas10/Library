@@ -8,8 +8,8 @@ class readYML {
         envConfig.each {
             key,value -> 
             if (value.deploy) {
-                jobsMap.add(setParams(value))
-                keysMap.add(key)
+                //jobsMap.add(setParams(value))
+                //keysMap.add(key)
                 jobsMap.put(key,setParams(value))
             }
             else {
