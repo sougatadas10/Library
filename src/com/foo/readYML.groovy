@@ -1,23 +1,18 @@
 package com.foo
-import groovy.json.JsonSlurper
 
 class readYML {
     Map parse(def context,LinkedHashMap envConfig) {
         def jobsMap = [:]
-        def keysMap = []
         envConfig.each {
             key,value -> 
             if (value.deploy) {
-                //jobsMap.add(setParams(value))
-                //keysMap.add(key)
-                jobsMap.put(key,setParams(value))
+               jobsMap.put(key,setParams(value))
             }
             else {
                 context.println ("Deployment not selected")
                 jobsMap.add("false")
             }
         }
-        //jobsMap.add(keysMap)
         return jobsMap
 
     }
@@ -36,7 +31,6 @@ class readYML {
                 }
                 extraVars=extraVars.substring(0, extraVars.length()-1) +"}"
                 params= params+"[\$class: \'StringParameterValue\',"+ "name: extra_vars,"+"value: "+extraVars+"]"
-                //params.add([$class: 'StringParameterValue', "name": "extra_vars","value": extraVars])
                 
             }
         }
