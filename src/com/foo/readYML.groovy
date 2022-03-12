@@ -8,10 +8,9 @@ class readYML {
         envConfig.each {
             key,value -> 
             if (value.deploy) {
-                //context.println(setParams(value))
-                //context.println("key:"+key+" value: "+ value)
-                jobsMap.add(key,setParams(value))
+                jobsMap.add(setParams(value))
                 keysMap.add(key)
+                jobsMap.put(key,setParams(value))
             }
             else {
                 context.println ("Deployment not selected")
