@@ -10,7 +10,7 @@ class readYML {
             }
             else {
                 context.println ("Deployment not selected")
-                jobsMap.add("false")
+                jobsMap.put(key,"false")
             }
         }
         return jobsMap
