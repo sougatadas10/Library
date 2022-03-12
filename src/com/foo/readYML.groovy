@@ -2,15 +2,15 @@ package com.foo
 import groovy.json.JsonSlurper
 
 class readYML {
-    ArrayList parse(def context,LinkedHashMap envConfig) {
-        def jobsMap = []
+    Map parse(def context,LinkedHashMap envConfig) {
+        def jobsMap = [:]
         def keysMap = []
         envConfig.each {
             key,value -> 
             if (value.deploy) {
                 //context.println(setParams(value))
                 //context.println("key:"+key+" value: "+ value)
-                jobsMap.add(setParams(value))
+                jobsMap.add(key,setParams(value))
                 keysMap.add(key)
             }
             else {
@@ -18,7 +18,7 @@ class readYML {
                 jobsMap.add("false")
             }
         }
-        jobsMap.add(keysMap)
+        //jobsMap.add(keysMap)
         return jobsMap
 
     }
