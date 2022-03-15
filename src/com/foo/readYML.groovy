@@ -5,7 +5,7 @@ class readYML {
         def jobsMap = [:]
         envConfig.each {
             key,value -> 
-            if (value.deploy) {
+            if (value.deploy == "true") {
                jobsMap.put(key,setParams(value))
             }
             else {
