@@ -1,5 +1,5 @@
 package com.foo
-@Grab( 'mysql:mysql-connector-java:5.1.27' )
+@Grab( 'mysql:mysql-connector-java:8.0.28' )
 //@GrabConfig(systemClassLoader=true)
 import groovy.sql.Sql;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
