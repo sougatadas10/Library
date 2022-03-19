@@ -1,5 +1,5 @@
 package com.foo
-@Grab(mysql:mysql-connector-java:8.0.28)
+@Grab('mysql:mysql-connector-java:8.0.28')
 import groovy.sql.Sql;
 import java.util.ServiceLoader;
 import java.sql.Driver;
