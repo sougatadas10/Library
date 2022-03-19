@@ -2,12 +2,8 @@ package com.foo
 @Grab( 'mysql:mysql-connector-java:5.1.27' )
 //@GrabConfig(systemClassLoader=true)
 import groovy.sql.Sql;
-import java.util.ServiceLoader;
-import java.sql.Driver;
-import java.sql.DriverManager;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 import com.mysql.jdbc.*
-import groovy.sql.*
 
 class DBConnection{
   
@@ -23,7 +19,7 @@ class DBConnection{
     //echo rows.dump()
     MysqlDataSource ds = new MysqlDataSource()
     ds.user = 'root'
-    ds.password = "root@pass"
+    ds.password = 'root@pass'
     ds.url = 'jdbc:mysql://localhost:3306/test'
 
     Sql sql=Sql.newInstance(ds)
