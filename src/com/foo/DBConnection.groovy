@@ -13,7 +13,7 @@ class DBConnection{
     ds.url = 'jdbc:mysql://127.0.0.1:3306/employee'  
     Sql sql=Sql.newInstance(ds)
     
-    sql.firstRow('SELECT employee_id, employee_name FROM Author')
+    sql.firstRow('SELECT employee_id, employee_name FROM employee_master')
     
    
     }
