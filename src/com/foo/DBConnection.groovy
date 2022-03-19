@@ -2,7 +2,7 @@ package com.foo
 libraryResource 'mysql-connector-java-8.0.28.jar'
 import groovy.sql.Sql
 
-class getMySQLConnection{
+class DBConnection{
   
   def getConnection() {
     Class.forName("com.mysql.jdbc.Driver")
