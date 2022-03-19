@@ -15,8 +15,8 @@ class DBConnection{
     Sql sql=Sql.newInstance(ds)
     //def rows = sql.execute "select count(*) from employee.employee_master;"
     //context.println rows.dump()
-    sql.query('SELECT employee_id, employee_name FROM employee_master') { resultSet ->
-    resultSet ->
+    sql.query('SELECT employee_id, employee_name FROM employee_master') { 
+      resultSet ->
       while (resultSet.next()) {
         def first = resultSet.getString(1)
         def last = resultSet.getString('employee_name')
