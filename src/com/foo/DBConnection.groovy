@@ -8,8 +8,8 @@ class DBConnection{
   
   def getConnection(def context) {
     //context.libraryResource 'mysql-connector-java-8.0.28.jar'
-    //Class.forName("com.mysql.jdbc.Driver")
-    ServiceLoader<java.sql.Driver> loader = ServiceLoader.load(java.sql.Driver.class);
+    Class.forName("com.mysql.jdbc.Driver")
+    //ServiceLoader<java.sql.Driver> loader = ServiceLoader.load(java.sql.Driver.class);
     def sql = Sql.newInstance("jdbc:mysql://localhost:3306/employee", "root","root@pass", "com.mysql.jdbc.Driver")
     //def rows = sql.execute "select count(*) from test_table;"
     //echo rows.dump()
