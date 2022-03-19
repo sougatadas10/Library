@@ -17,7 +17,7 @@ class DBConnection{
     def url = 'jdbc:mysql:mem:employee'
     def user = 'root'
     def password = 'root@pass'
-    def driver = 'org.mysql.jdbcDriver'
+    def driver = 'org.mysql.cj.jdbcDriver'
     def sql = Sql.newInstance(url, user, password, driver)
     
     sql.firstRow('SELECT employee_id, employee_name FROM employee_master')
