@@ -13,7 +13,7 @@ class DBConnection{
     ds.password = 'root@pass'
     ds.url = 'jdbc:mysql://localhost:3306/employee'
     Sql sql=Sql.newInstance(ds)
-    def rows = sql.execute "select count(*) from employee_master;"
-    context.println rows.dump()
+    //def rows = sql.execute "select count(*) from employee_master;"
+    //context.println rows.dump()
   }
 }
