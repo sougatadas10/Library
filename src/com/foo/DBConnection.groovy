@@ -4,7 +4,7 @@ package com.foo
 
 import groovy.sql.Sql;
 //import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-imort org.mysql.jdbc.JDBCDataSource
+import org.mysql.jdbc.JDBCDataSource
 import com.mysql.jdbc.*
 class DBConnection{
   
