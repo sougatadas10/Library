@@ -14,7 +14,7 @@ class DBConnection{
     ds.url = 'jdbc:mysql://host.docker.internal:3306/employee?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT"'  
     Sql sql=Sql.newInstance(ds)**/
     
-    def url = 'jdbc:mysql:mem:employee'
+    def url = 'jdbc:mysql:host.docker.internal:3306:employee'
     def user = 'root'
     def password = 'root@pass'
     def driver = 'org.mysql.cj.jdbcDriver'
