@@ -1,5 +1,5 @@
 package com.foo
-
+@Grab(group='mysql', module='mysql-connector-java', version='5.1.6')
 import groovy.sql.Sql
 
 class DBConnection{
