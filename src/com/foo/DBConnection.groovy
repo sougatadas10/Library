@@ -3,7 +3,7 @@ package com.foo
 @Grab( 'mysql:mysql-connector-java:8.0.11')
 
 import groovy.sql.Sql;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 import com.mysql.jdbc.*
 class DBConnection{
   
