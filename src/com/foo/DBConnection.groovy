@@ -10,7 +10,7 @@ class DBConnection{
     MysqlDataSource ds = new MysqlDataSource()
     ds.user = 'root'
     ds.password = 'root@pass'
-    ds.url = 'jdbc:mysql://172.17.0.1:3306/employee'  
+    ds.url = 'jdbc:mysql://172.17.0.3:3306/employee'  
     Sql sql=Sql.newInstance(ds)
     
     sql.firstRow('SELECT employee_id, employee_name FROM employee_master')
