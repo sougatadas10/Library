@@ -9,7 +9,8 @@ import com.mysql.jdbc.*
 class DBConnection{
   
   def getConnection(def context) {
-    MysqlDataSource ds = new MysqlDataSource()
+    //MysqlDataSource ds = new MysqlDataSource()
+    JDBCDataSource ds = new JDBCDataSource()
     ds.user = 'root'
     ds.password = 'root@pass'
     ds.url = 'jdbc:mysql://host.docker.internal:3306/employee?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT"'  
