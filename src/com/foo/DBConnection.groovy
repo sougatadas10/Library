@@ -3,6 +3,7 @@ package com.foo
 @Grab( 'mysql:mysql-connector-java:8.0.20')
 
 import groovy.sql.Sql;
+import java.sql.Driver;
 //import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 //import org.mysql.jdbc.JDBCDataSource
 //import com.mysql.jdbc.*
@@ -21,7 +22,7 @@ class DBConnection{
     def password = 'root@pass'
     def driver = 'org.mysql.cj.jdbcDriver'
     def sql = Sql.newInstance(url, user, password, driver)**/
-    d=Class.forName("com.mysql.jdbc.Driver").newInstance()
+    ServiceLoader<Driver> loader = ServiceLoader.load(Driver.class);
     context.println(d.class)
     def sql = Sql.newInstance("jdbc:mysql://host.docker.internal:3306/employee", "root", "root@pass", "com.mysql.jdbc.Driver")
     
