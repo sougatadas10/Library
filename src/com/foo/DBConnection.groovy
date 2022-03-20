@@ -5,6 +5,8 @@ package com.foo
 
 import groovy.sql.Sql;
 import java.sql.Driver;
+import java.sql.Connection;
+import java.sql.DriverManager;
 //import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 //import org.mysql.jdbc.JDBCDataSource
 //import com.mysql.jdbc.*
