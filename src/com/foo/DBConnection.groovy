@@ -21,7 +21,8 @@ class DBConnection{
     def password = 'root@pass'
     def driver = 'org.mysql.cj.jdbcDriver'
     def sql = Sql.newInstance(url, user, password, driver)**/
-    
+    d=Class.forName("com.mysql.jdbc.Driver").newInstance()
+    context.println(d.class)
     def sql = Sql.newInstance("jdbc:mysql://host.docker.internal:3306/employee", "root", "root@pass", "com.mysql.jdbc.Driver")
     
     sql.firstRow('SELECT employee_id, employee_name FROM employee_master')
