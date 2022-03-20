@@ -1,7 +1,7 @@
 package com.foo
 //@Grab( 'mysql:mysql-connector-java:5.1.27' )
-//@Grab( 'mysql:mysql-connector-java:8.0.20')
-@Grab(group='mysql',module='mysql-connector-java',version='8.0.20')
+@Grab( 'mysql:mysql-connector-java:8.0.20')
+//@Grab(group='mysql',module='mysql-connector-java',version='8.0.20')
 
 import groovy.sql.Sql;
 import java.sql.Driver;
@@ -23,10 +23,15 @@ class DBConnection{
     def password = 'root@pass'
     def driver = 'org.mysql.cj.jdbcDriver'
     def sql = Sql.newInstance(url, user, password, driver)**/
-    Class.forName("com.mysql.jdbc.Driver").newInstance()
-    def sql = Sql.newInstance("jdbc:mysql://host.docker.internal:3306/employee", "root", "root@pass", "com.mysql.jdbc.Driver")
+    //Class.forName("com.mysql.jdbc.Driver").newInstance()
+    DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+    Connection con = DriverManager.getConnection("jdbc:mysql://host.docker.internal:3306/employee", "root", "root@pass");
+    context.println("Connection established: "+con);
+
+ 
+    //def sql = Sql.newInstance("jdbc:mysql://host.docker.internal:3306/employee", "root", "root@pass", "com.mysql.jdbc.Driver")
     
-    sql.firstRow('SELECT employee_id, employee_name FROM employee_master')
+    //sql.firstRow('SELECT employee_id, employee_name FROM employee_master')
     
    
     }
