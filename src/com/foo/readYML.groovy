@@ -9,7 +9,7 @@ class readYML {
                jobsMap.put(key,setParams(value))
             }
             else {
-                context.println ("Deployment not selected")
+                //context.println ("Deployment not selected")
                 jobsMap.put(key,"false")
             }
         }
