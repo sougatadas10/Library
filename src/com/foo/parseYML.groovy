@@ -1,6 +1,6 @@
 package com.foo
 
-class readYML {
+class parseYML implements Serializable{
     Map parse(def context,LinkedHashMap envConfig) {
         def jobsMap = [:]
         envConfig.each {
