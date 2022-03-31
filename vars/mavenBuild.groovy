@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 
 def call(Map params) {
+  def context = params.script
   node() {
     stage('clone') {
       checkout([
@@ -10,7 +11,7 @@ def call(Map params) {
         ])  
       }
       stage('build') {
-        withMaven(jdk: "${env.test-jdk}", maven: "${env.test-maven}") {
+        withMaven(jdk: "${context.env.test-jdk}", maven: "${context.env.test-maven}") {
             sh "mvn -f ${params.file} ${params.options}"
           }
       }
