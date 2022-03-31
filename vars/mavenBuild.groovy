@@ -1,10 +1,7 @@
 #!/usr/bin/env groovy
 
 def call(Map buildParams) {
-    def params= [:]
-    body.resolveStrategy = Closure.DELEGATE_FIRST
-    body.delegate = params
-    body()
+    
  
  pipeline {
       agent any
