@@ -2,7 +2,10 @@
 
 def call(Map buildParams) {
  pipeline {
-      // agent any
+      agent any
+      parameters {
+        string(name: 'branch', defaultValue: ' ', description: 'commit')
+      }
        tools {
            maven 'test-maven'
            jdk 'test-jdk'
