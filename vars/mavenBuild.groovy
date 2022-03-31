@@ -27,13 +27,19 @@ def call(Map buildParams,def context) {
            stage("Checkout Code") {
                steps {
                   
-                   git branch: buildParams.branch,
-                       url: buildParams.repo
+                   git branch: buildParams.get('branch'),
+                       url: buildParams.get('repo')
                }
            }
            stage("Build Maven") {
                steps {
-                 sh "mvn -f ${buildParams.file} ${buildParams.args}"
+                   script {
+                       String pomFile=buildParams.get('file')
+                       String options=buildParams.get('args')
+                       sh "mvn -f ${pomFile} ${options}"
+                  
+                   }    
+                 
                }
            }
 
