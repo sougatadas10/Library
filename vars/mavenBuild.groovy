@@ -19,6 +19,7 @@ def call(Map buildParams,def context) {
                    sh "java -version"
                    script {
                     context.println (buildParams)
+                    context.println (buildParams.args)   
                    }
                }
            }
