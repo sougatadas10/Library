@@ -1,6 +1,11 @@
 #!/usr/bin/env groovy
 
-def call(Map buildParams) {
+def call(Map buildParams,body) {
+    def params= [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = params
+    body()
+ 
  pipeline {
       agent any
       parameters {
@@ -19,6 +24,7 @@ def call(Map buildParams) {
            }
            stage("Checkout Code") {
                steps {
+                  
                    git branch: params.branch,
                        url: buildParams.repo
                }
