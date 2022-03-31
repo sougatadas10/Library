@@ -22,7 +22,7 @@ def call(Map buildParams) {
            }
            stage("Build Maven") {
                steps {
-                 sh "mvn -f ${buildParams.file} ${args}"
+                 sh "mvn -f ${buildParams.file} ${buildParams.args}"
                }
            }
 
