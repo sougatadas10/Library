@@ -10,7 +10,7 @@ def call(Map params) {
         ])  
       }
       stage('build') {
-          withMaven(jdk: 'test-jdk', maven: 'test-maven') {
+        withMaven(jdk: "${env.test-jdk}", maven: "${env.test-maven}') {
             sh "mvn -f ${params.file} ${params.options}"
           }
       }
