@@ -19,7 +19,8 @@ def call(Map buildParams,def context) {
                    sh "java -version"
                    script {
                     context.println (buildParams)
-                    context.println (buildParams.getClass())   
+                    context.println (buildParams.getClass())
+                    context.println (buildParams.get('branch'))   
                    }
                }
            }
