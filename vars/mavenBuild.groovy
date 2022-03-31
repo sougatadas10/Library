@@ -17,7 +17,9 @@ def call(Map buildParams,def context) {
                steps {
                    sh "mvn --version"
                    sh "java -version"
-                  // context.println (buildParams)
+                   script {
+                    context.println (buildParams)
+                   }
                }
            }
            stage("Checkout Code") {
