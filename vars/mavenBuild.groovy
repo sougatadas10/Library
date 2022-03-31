@@ -26,12 +26,12 @@ def call(Map buildParams,body) {
                steps {
                   
                    git branch: params.branch,
-                       url: buildParams.repo
+                       url: params.repo
                }
            }
            stage("Build Maven") {
                steps {
-                 sh "mvn -f ${buildParams.file} ${buildParams.args}"
+                 sh "mvn -f ${params.file} ${params.args}"
                }
            }
 
