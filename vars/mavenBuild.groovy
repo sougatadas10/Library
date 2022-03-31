@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 def call(Map buildParams) {
- // pipeline {
+ pipeline {
       // agent any
        tools {
            maven 'test-maven'
@@ -27,5 +27,5 @@ def call(Map buildParams) {
            }
 
        }
-  // }
+   }
 }
