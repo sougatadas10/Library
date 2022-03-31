@@ -20,7 +20,7 @@ def call(Map buildParams,def context) {
                    script {
                     context.println (buildParams)
                     context.println (buildParams.getClass())
-                    context.println (buildParams.get('branch'))   
+                    context.println (buildParams.get('options'))   
                    }
                }
            }
@@ -35,8 +35,8 @@ def call(Map buildParams,def context) {
                steps {
                    script {
                        String pomFile=buildParams.get('file')
-                       String options=buildParams.get('args')
-                       sh "mvn -f ${pomFile} ${options}"
+                       String args=buildParams.get('options')
+                       sh "mvn -f ${pomFile} ${args}"
                   
                    }    
                  
