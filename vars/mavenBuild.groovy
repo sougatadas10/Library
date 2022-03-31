@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call(Map buildParams,body) {
+def call(Map buildParams) {
     def params= [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = params
@@ -25,13 +25,13 @@ def call(Map buildParams,body) {
            stage("Checkout Code") {
                steps {
                   
-                   git branch: params.branch,
-                       url: params.repo
+                   git branch: buildParams.branch,
+                       url: buildParams.repo
                }
            }
            stage("Build Maven") {
                steps {
-                 sh "mvn -f ${params.file} ${params.args}"
+                 sh "mvn -f ${buildParams.file} ${buildParams.args}"
                }
            }
 
