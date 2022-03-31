@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-/**def call() {
+def call(Map buildParams) {
   pipeline {
        agent any
        tools {
@@ -16,28 +16,16 @@
            }
            stage("Checkout Code") {
                steps {
-                   git branch: 'main',
-                       url: "https://github.com/devopshint/jenkins-pipeline-example.git"
+                   git branch: buildParams.branch,
+                       url: buildParams.repo
                }
            }
-           stage("Cleaning workspace") {
+           stage("Build Maven") {
                steps {
-                   sh "mvn clean"
+                 sh "mvn -f ${buildParams.file} ${args}"
                }
            }
 
        }
    }
-}**/
-
-def call() {
-  node() {
-    tool name: 'test-jdk', type: 'jdk'
-    tool name: 'test-maven', type: 'maven'
-    
-    stage("tools initialization") {
-       sh "mvn --version"
-       sh "java -version"
-    }
-  }
 }
