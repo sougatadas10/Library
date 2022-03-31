@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call(Map buildParams,def context) {
+def call(Map buildParams) {
     
  
  pipeline {
@@ -17,11 +17,6 @@ def call(Map buildParams,def context) {
                steps {
                    sh "mvn --version"
                    sh "java -version"
-                   script {
-                    context.println (buildParams)
-                    context.println (buildParams.getClass())
-                    context.println (buildParams.get('options'))   
-                   }
                }
            }
            stage("Checkout Code") {
