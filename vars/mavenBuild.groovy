@@ -19,7 +19,7 @@ def call(Map buildParams) {
            }
            stage("Checkout Code") {
                steps {
-                   git branch: buildParams.branch,
+                   git branch: params.branch,
                        url: buildParams.repo
                }
            }
