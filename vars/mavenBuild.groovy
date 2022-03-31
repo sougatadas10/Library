@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call() {
+/**def call() {
   pipeline {
        agent any
        tools {
@@ -28,4 +28,16 @@ def call() {
 
        }
    }
+}**/
+
+def call() {
+  node() {
+    tool name: 'test-jdk', type: 'jdk'
+    tool name: 'test-maven', type: 'maven'
+    
+    stage("tools initialization") {
+       sh "mvn --version"
+       sh "java -version"
+    }
+  }
 }
