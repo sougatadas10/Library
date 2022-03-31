@@ -11,8 +11,8 @@ def call(Map params) {
         ])  
       }
       stage('build') {
-        def mavenHome=tool 'test-maven'
-        def jdkHome=tool 'test-jdk'
+        def mavenHome=context.tool 'test-maven'
+        def jdkHome=context.tool 'test-jdk'
         withMaven(jdk: jdkHome, maven: mavenHome) {
             sh "mvn -f ${params.file} ${params.options}"
           }
