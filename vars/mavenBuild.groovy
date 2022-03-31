@@ -1,22 +1,31 @@
 #!/usr/bin/env groovy
 
-def call(Map params) {
-  def context = params.script
-  node() {
-    stage('clone') {
-      checkout([
-          $class: 'GitSCM',
-          branches: [[name: params.branch ]],
-          userRemoteConfigs: [[ url: params.url ]]
-        ])  
-      }
-      stage('build') {
-        context.sh "mvn -f ${params.file} ${params.options}"
-        //def mavenHome=context.tool 'test-maven'
-        //def jdkHome=context.tool'test-jdk'
-        //withMaven(jdk: jdkHome, maven: mavenHome) {
-         //   sh "mvn -f ${params.file} ${params.options}"
-          //}
-      }
-    }  
-} 
+def call() {
+  pipeline {
+       agent any
+       tools {
+           maven 'test-maven'
+           jdk 'test-jdk'
+       }
+       stages {
+           stage("Tools initialization") {
+               steps {
+                   sh "mvn --version"
+                   sh "java -version"
+               }
+           }
+           stage("Checkout Code") {
+               steps {
+                   git branch: 'main',
+                       url: "https://github.com/devopshint/jenkins-pipeline-example.git"
+               }
+           }
+           stage("Cleaning workspace") {
+               steps {
+                   sh "mvn clean"
+               }
+           }
+
+       }
+   }
+}
