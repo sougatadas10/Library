@@ -2,7 +2,6 @@
 
 def call(Map buildParams) {
     
- 
  pipeline {
       agent any
        tools {
@@ -28,9 +27,7 @@ def call(Map buildParams) {
                        String pomFile=buildParams.get('file')
                        String args=buildParams.get('options')
                        sh "mvn -f ${pomFile} ${args}"
-                  
-                   }    
-                 
+                   }
                }
            }
 
