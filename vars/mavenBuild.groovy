@@ -27,6 +27,7 @@ def call(Map buildParams) {
                        String pomFile=buildParams.get('file')
                        String args=buildParams.get('options')
                        sh "mvn -f ${pomFile} ${args}"
+                       sh "echo ${env.JOB_NAME}"
                    }
                }
            }
