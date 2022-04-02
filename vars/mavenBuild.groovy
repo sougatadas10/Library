@@ -17,8 +17,12 @@ def call(Map buildParams) {
            }
            stage("Checkout Code") {
                steps {
-                   git branch: buildParams.get('branch'),
+                   script {
+                       def buildrepos = libraryResource 'org.json'
+                       sh "echo ${buildrepos}"
+                       git branch: buildParams.get('branch'),
                        url: buildParams.get('repo')
+                   }     
                }
            }
            stage("Build Maven") {
