@@ -1,4 +1,4 @@
 [
-{"job_name": "java-maven-build1", "repo":"https://github.com/devopshint/jenkins-pipeline-example.git","pom_file":"my-app/pom.xml"},
-{"job_name": "java-maven-build2", "repo":"https://github.com/devopshint/jenkins-pipeline-example.git","pom_file":"my-app/pom.xml"}
+{"job_name": "java-maven-build1","repo": "https://github.com/devopshint/jenkins-pipeline-example.git","pom_file": "my-app/pom.xml"},
+{"job_name": "java-maven-build2","repo": "https://github.com/devopshint/jenkins-pipeline-example.git","pom_file": "my-app/pom.xml"}
 ]
