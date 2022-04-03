@@ -1,8 +1,4 @@
 #!/usr/bin/env groovy
-import groovy.json.JsonSlurper
-
-
-
 
 def call(Map buildParams) {
     
@@ -22,8 +18,7 @@ def call(Map buildParams) {
            stage("Checkout Code") {
                steps {
                    script {
-                       def jsonSlurper = new JsonSlurper()
-                       def buildrepos = jsonSlurper.parse(libraryResource 'org.json')
+                       def buildrepos=readJSON file: 'buildRepo.json'
                        sh "echo ${buildrepos}"
                        git branch: buildParams.get('branch'),
                        url: buildParams.get('repo')
