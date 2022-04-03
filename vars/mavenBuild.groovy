@@ -18,8 +18,8 @@ def call(Map buildParams) {
            stage("Checkout Code") {
                steps {
                    script {
-                       def buildrepos=readJSON file: 'buildRepo.json'
-                       sh "echo ${buildrepos}"
+                       //def buildrepos=readJSON file: 'buildRepo.json'
+                       //sh "echo ${buildrepos}"
                        git branch: buildParams.get('branch'),
                        url: buildParams.get('repo')
                    }     
