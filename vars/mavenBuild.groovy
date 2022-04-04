@@ -18,7 +18,8 @@ def call(Map buildParams) {
            stage("Checkout Code") {
                steps {
                    script {
-                       def buildrepos = libraryResource "org.json"
+                       String buildrepos = libraryResource "org.json"
+                       println (buildrepos)
                        git branch: buildParams.get('branch'),
                        url: buildParams.get('repo')
                    }     
