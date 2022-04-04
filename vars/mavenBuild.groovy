@@ -21,7 +21,7 @@ def call(Map buildParams) {
                        String strLib = libraryResource "org.json"
                        println (strLib)
                        def jsonLibProps=readJSON text: strLib
-                       for (int i=0; i < jsonLibProps.size(); ++i
+                       for (int i=0; i < jsonLibProps.size(); ++i)
                            println (i+"="+jsonLibProps[i].job_name)
                         
                        git branch: buildParams.get('branch'),
