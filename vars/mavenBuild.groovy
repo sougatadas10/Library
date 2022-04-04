@@ -18,8 +18,12 @@ def call(Map buildParams) {
            stage("Checkout Code") {
                steps {
                    script {
-                       String buildrepos = libraryResource "org.json"
-                       println (buildrepos)
+                       String strLib = libraryResource "org.json"
+                       println (strLib)
+                       def jsonLibProps=readJSON text: strLib
+                       for (int i=0; i < jsonLibProps.size(); ++i
+                           println (i+"="+jsonLibProps[i].job_name)
+                        
                        git branch: buildParams.get('branch'),
                        url: buildParams.get('repo')
                    }     
