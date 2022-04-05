@@ -1,10 +1,11 @@
 #!/usr/bin/env groovy
 
 def call(Map buildParams) {
-    
+  
+ def pomFile   
  pipeline {
       agent any
-       def pomFile
+       
        tools {
            maven 'test-maven'
            jdk 'test-jdk'
