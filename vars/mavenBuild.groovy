@@ -2,17 +2,13 @@
 
 def call(Map buildParams) {
   
- def pomFile   
+ String pomFile   
  pipeline {
-      agent any
-       
+      agent any 
        tools {
            maven 'test-maven'
            jdk 'test-jdk'
        }
-      
-   
-     
        stages {
            stage("Tools initialization") {
                steps {
@@ -25,32 +21,23 @@ def call(Map buildParams) {
                    script {
                        String repo
                        String strLib = libraryResource "org.json"
-                       //println (strLib)
                        def jsonLibProps=readJSON text: strLib
-                       //println ("size="+ jsonLibProps.size())
                        for (int i=0; i < jsonLibProps.size(); ++i) {
-                         //println (jsonLibProps[i].job_name)
                            if (env.JOB_NAME == jsonLibProps[i].job_name) {
                                pomFile = jsonLibProps[i].pom_file
                                repo = jsonLibProps[i].repo
-                               println ("repo="+repo+"pom="+pomFile) 
+                               println ("The selected repo is "+repo+" and selected pomfiel is "+pomFile) 
                            }    
-                           
                        }    
-                       
-                        
                        git branch: buildParams.get('branch'), url: repo
-                       //url: buildParams.get('repo')
                    }     
                }
            }
            stage("Build Maven") {
                steps {
                    script {
-                       //pomFile=buildParams.get('file')
                        String args=buildParams.get('options')
                        sh "mvn -f ${pomFile} ${args}"
-                       //sh "echo ${env.JOB_NAME}"
                    }
                }
            }
