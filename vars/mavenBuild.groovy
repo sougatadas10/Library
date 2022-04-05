@@ -4,12 +4,13 @@ def call(Map buildParams) {
     
  pipeline {
       agent any
+       def pomFile
        tools {
            maven 'test-maven'
            jdk 'test-jdk'
        }
       
-      def pomFile
+   
      
        stages {
            stage("Tools initialization") {
