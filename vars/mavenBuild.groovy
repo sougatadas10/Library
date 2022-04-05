@@ -8,7 +8,9 @@ def call(Map buildParams) {
            maven 'test-maven'
            jdk 'test-jdk'
        }
-       String pomFile
+      environment {
+          String pomFile
+      }   
        stages {
            stage("Tools initialization") {
                steps {
