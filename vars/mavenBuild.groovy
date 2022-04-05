@@ -27,8 +27,9 @@ def call(Map buildParams) {
                        String strLib = libraryResource "org.json"
                        //println (strLib)
                        def jsonLibProps=readJSON text: strLib
+                       println ("size="+ jsonLibProps.size())
                        for (int i=0; i < jsonLibProps.size(); ++i) {
-                         println (env.JOB_NAME +"\t" +  jsonLibProps[i].job_name)
+                         println (jsonLibProps[i].job_name)
                            if (env.JOB_NAME == jsonLibProps[i].job_name) {
                                pomFile = jsonLibProps[i].pom_file
                                repo = jsonLibProps[i].repo
