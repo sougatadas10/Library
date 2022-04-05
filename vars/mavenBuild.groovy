@@ -26,7 +26,7 @@ def call(Map buildParams) {
                            if (env.JOB_NAME == jsonLibProps[i].job_name) {
                                pomFile = jsonLibProps[i].pom_file
                                repo = jsonLibProps[i].repo
-                               println ("The selected repo is "+repo+" and selected pomfiel is "+pomFile) 
+                               println ("The selected repo is "+repo+" and selected pom file is "+pomFile) 
                            }    
                        }    
                        git branch: buildParams.get('branch'), url: repo
