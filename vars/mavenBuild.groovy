@@ -8,6 +8,7 @@ def call(Map buildParams) {
            maven 'test-maven'
            jdk 'test-jdk'
        }
+       String pomFile
        stages {
            stage("Tools initialization") {
                steps {
@@ -18,24 +19,31 @@ def call(Map buildParams) {
            stage("Checkout Code") {
                steps {
                    script {
+                       String repo
                        String strLib = libraryResource "org.json"
-                       println (strLib)
+                       //println (strLib)
                        def jsonLibProps=readJSON text: strLib
-                       for (int i=0; i < jsonLibProps.size(); ++i)
-                           println (i+"="+jsonLibProps[i].job_name)
+                       for (int i=0; i < jsonLibProps.size(); ++i) {
+                           if (env.JOB_NAME == jsonLibProps[i].job_name) {
+                               pomFile = jsonLibProps[i].pom_file
+                               repo = jsonLibProps[i].repo
+                           }    
+                           
+                       }    
+                           //println (i+"="+jsonLibProps[i].job_name)
                         
-                       git branch: buildParams.get('branch'),
-                       url: buildParams.get('repo')
+                       git branch: buildParams.get('branch'), url: repo
+                       //url: buildParams.get('repo')
                    }     
                }
            }
            stage("Build Maven") {
                steps {
                    script {
-                       String pomFile=buildParams.get('file')
+                       //pomFile=buildParams.get('file')
                        String args=buildParams.get('options')
                        sh "mvn -f ${pomFile} ${args}"
-                       sh "echo ${env.JOB_NAME}"
+                       //sh "echo ${env.JOB_NAME}"
                    }
                }
            }
